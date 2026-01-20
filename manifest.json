@@ -2,9 +2,23 @@
   "name": "Virtual Pet",
   "short_name": "Virtual Pet",
   "description": "An interactive virtual pet game where you care for your adorable digital companion",
-  "start_url": "./index.html",
+  "start_url": "/virtualPetPWA",
   "display": "standalone",
   "background_color": "#667eea",
   "theme_color": "#667eea",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
