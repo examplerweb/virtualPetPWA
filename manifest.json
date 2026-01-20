@@ -1,0 +1,10 @@
+{
+  "name": "Virtual Pet",
+  "short_name": "Virtual Pet",
+  "description": "An interactive virtual pet game where you care for your adorable digital companion",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "portrait"
+}

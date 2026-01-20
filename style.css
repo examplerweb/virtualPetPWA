@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.pet-container {
+    margin: 30px 0;
+    position: relative;
+}
+
+.pet {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: bounce 2s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(255, 154, 158, 0.4);
+}
+
+.pet:hover {
+    transform: scale(1.05);
+}
+
+.pet-face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pet-eyes {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.eye {
+    width: 20px;
+    height: 20px;
+    background: #333;
+    border-radius: 50%;
+    animation: blink 3s ease-in-out infinite;
+}
+
+.pet-mouth {
+    width: 40px;
+    height: 20px;
+    border-bottom: 4px solid #333;
+    border-radius: 0 0 20px 20px;
+    transition: all 0.3s ease;
+}
+
+.pet-emotion {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #666;
+    font-weight: bold;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes blink {
+    0%, 45%, 55%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0.1);
+    }
+}
+
+@keyframes eat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes play {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-15deg);
+    }
+    75% {
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes sleep {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+}
+
+.pet.eating {
+    animation: eat 0.3s ease-in-out 3;
+}
+
+.pet.playing {
+    animation: play 0.5s ease-in-out 2;
+}
+
+.pet.sleeping {
+    animation: sleep 2s ease-in-out infinite;
+}
+
+.stats {
+    margin: 30px 0;
+}
+
+.stat {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat label {
+    width: 100px;
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+}
+
+.stat-bar {
+    flex: 1;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease, background 0.5s ease;
+}
+
+#hungerBar {
+    background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+}
+
+#happinessBar {
+    background: linear-gradient(90deg, #ffd93d, #ffe66d);
+}
+
+#energyBar {
+    background: linear-gradient(90deg, #6bcb77, #8ed99a);
+}
+
+.stat-fill.low {
+    background: linear-gradient(90deg, #ff0000, #ff4444);
+}
+
+.stat-fill.medium {
+    background: linear-gradient(90deg, #ffa500, #ffcc00);
+}
+
+.stat span {
+    width: 50px;
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.action-btn {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
+.action-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.download-btn {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(17, 153, 142, 0.4);
+    margin-top: 20px;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(17, 153, 142, 0.6);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+.message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f0f0f0;
+    font-size: 1em;
+    color: #555;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message.show {
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .pet {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .action-btn {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+}
